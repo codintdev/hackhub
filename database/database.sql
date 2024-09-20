@@ -1,9 +1,9 @@
-/*!999999\- enable the sandbox mode */ 
--- MariaDB dump 10.19-11.4.2-MariaDB, for debian-linux-gnu (x86_64)
+/*M!999999\- enable the sandbox mode */ 
+-- MariaDB dump 10.19-11.4.3-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: hackhub
 -- ------------------------------------------------------
--- Server version	11.4.2-MariaDB-4
+-- Server version	11.4.3-MariaDB-1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,11 +26,11 @@ DROP TABLE IF EXISTS `productos`;
 CREATE TABLE `productos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
-  `descripcion` varchar(500) DEFAULT NULL,
+  `descripcion` varchar(5000) NOT NULL,
   `precio` int(11) NOT NULL,
-  `imagen` varchar(500) DEFAULT NULL,
+  `imagen` varchar(5000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,12 +40,69 @@ CREATE TABLE `productos` (
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
 INSERT INTO `productos` VALUES
-(1,'Flipper Zero','El Flipper Zero es un dispositivo portátil multifuncional diseñado para la investigación de seguridad y la exploración de radiofrecuencia. Es una herramienta de hacking ético que puede interactuar con una variedad de tecnologías, como sistemas de acceso RFID, infrarrojos, NFC, y otros protocolos inalámbricos. Su interfaz amigable y capacidades de hardware lo hacen popular entre entusiastas de la seguridad, hackers y técnicos para probar la seguridad de dispositivos y sistemas.',1600000,'https://i5.walmartimages.com/seo/Flipper-Zero-Electronic-Pet-Hacking-Multi-Tool-Original-IN-HAND_78b1278c-8b59-454e-93e2-ea7550b6948e.4069108a752503b309e3ccebb4614bd5.jpeg'),
-(2,'ESP8266 Deauther','El ESP8266 Deauther es un firmware basado en el microcontrolador ESP8266 que permite realizar ataques de desautenticación (deauth) en redes Wi-Fi. Este firmware, desarrollado para fines educativos y de pruebas de seguridad, puede desconectar dispositivos de una red inalámbrica al enviar paquetes de desautenticación. Aunque útil para la auditoría de redes, su uso en redes ajenas sin autorización es ilegal y poco ético.',238000,'https://images-cdn.ubuy.co.in/633b3dcc7dffa939de04e483-aursinc-wifi-deauther-amp-bad-usb.jpg'),
-(3,'Rubber Ducky','El Rubber Ducky es un dispositivo USB diseñado para realizar ataques de inyección de comandos en computadores. Disfrazado como una memoria USB, se identifica como un teclado al conectarse, lo que le permite ejecutar scripts preprogramados a alta velocidad. Estos scripts pueden realizar diversas acciones, como abrir aplicaciones, ejecutar comandos o instalar malware. Popular en pruebas de penetración, su uso sin autorización es ilegal y antiético.',183000,'https://i5.walmartimages.com/asr/8f64b8c6-9af9-4707-b3ae-00f6d19c4def.bf98ec597a3f5da714c779a4856b3a10.jpeg'),
-(4,'Bash Bunny','El Bash Bunny es una herramienta avanzada de pruebas de penetración en forma de un dispositivo USB que permite automatizar ataques y pruebas de seguridad. Al conectarse a una computadora, puede emular varios dispositivos, como un teclado, almacenamiento masivo o adaptador de red, para ejecutar ataques rápidos, como la inyección de comandos, robo de datos o creación de puertas traseras. Es ideal para profesionales de seguridad, pero su uso sin autorización es ilegal y antiético.',492000,'https://shop.hak5.org/cdn/shop/products/bash-bunny-mk2_001_a71eaf45-5f2e-4156-ac45-5b782d25f62f_2000x.jpg?v=1624910237'),
-(5,'KeyCroc','En este video presentamos el KeyCroc de la marca Hak5, un dispositivo hardware que funciona como un Keylogger y es capaz de capturar las pulsaciones de teclado, conectarse a una red Wifi y ejecutar scripts para automatizar nuestras labores de auditoria.',679000,'https://shop.hak5.org/cdn/shop/files/keycroc-new_2000x.jpg?v=1698880769');
+(1,'FLIPPER ZERO','Flipper Zero, el dispositivo para pruebas de hacking. Como decimos, Flipper Zero es un dispositivo que puede servir para realizar pruebas de hacking y poner a prueba las redes.',1600000,'https://m.media-amazon.com/images/I/61hemQ6tndL._AC_SL1500_.jpg'),
+(2,'WIFI PINNEAPPLE','La WiFi Pineapple es un dispositivo que permite realizar ataques de DNS Spoofing, revisar las paginas navegadas, realizar ataques man-in-the-middle en redes Wi-Fi, permitiéndonos espiar todo el tráfico, realizar ataques de Rick Rolling, Nyan Cat o David Hasselhoff y mucho más.',600000,'https://shop.hak5.org/cdn/shop/products/mk7ac-tactical1_2000x.jpg?v=1722645348'),
+(3,'USB RUBBER DUCKY','El Rubber Ducky tiene la apariencia de una simple memoria USB. Sin embargo, se trata de un dispositivo de interfaz humana (Human Interface Device, HID por sus siglas en inglés), es decir, un dispositivo de entrada y salida que permite la interacción con el equipo, como lo hacen los teclados y los ratones.',350000,'https://shop.hak5.org/cdn/shop/products/usb-rubber-ducky_mk2_2000x.jpg?v=1659974440'),
+(4,'BASH BUNNY','Bash Bunny- La plataforma de ataque USB más avanzada del mundo. Bash Bunny abre superficies de ataque que no eran posibles antes en un solo dispositivo. Los ataques de pruebas de penetración y las tareas de automatización de TI se entregan en segundos con el Bash Bunny.',550000,'https://shop.hak5.org/cdn/shop/files/bash-bunny-mk2_003_1400x.jpg?v=1624552106'),
+(5,'ADAPTADOR INALAMBRICO ALFA AWUS036ACS','Adaptador Wi-Fi inalámbrico USB AC600 de doble banda de cobertura ancha con antena externa de alta sensibilidad - Compatible con Windows, MacOS y Kali Linux.',100000,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMOqTJ8k6lrQnZwTqkjgx_QYxCklTUJqHsQw&s'),
+(6,'HACK RF ONE','HackRF One es capaz de recibir y transmitir en un rango de frecuencia de 1 MHz a 6 GHz con una potencia de salida máxima de hasta 15 dBm según la banda . La unidad viene con un puerto de antena SMA, puertos SMA de entrada y salida de reloj y un puerto USB 2.0.',950000,'https://www.openhacks.com/uploadsproductos/13001-01.jpg'),
+(7,'RASPBERRY PI','Una Raspberry PI es un ordenador del tamaño de una tarjeta de crédito. ¿Suena increíble, verdad? Consiste en una placa base que soporta distintos componentes de un ordenador como un procesador ARM de hasta 1500 MHz, un chip gráfico y una memoria RAM de hasta 8 GB. Además, tiene otras muchas otras posibilidades.',350000,'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Raspberry_Pi_4_Model_B_-_Side.jpg/1200px-Raspberry_Pi_4_Model_B_-_Side.jpg'),
+(8,'LAN TURTLE','LAN Turtle es una herramienta encubierta de administración de sistemas y pruebas de penetración que proporciona acceso remoto sigiloso, recopilación de inteligencia de red y capacidades de vigilancia de hombre en el medio a través de una sencilla carcasa gráfica.',350000,'https://shop.hak5.org/cdn/shop/files/turtle-2_1400x.jpg?v=1613748062'),
+(9,'WIFI DEAUTHER','[Deauther Watch V3]: es una potente herramienta de prueba de red WiFi, envuelta por una caja acrílica y una carcasa transparente impresa en 3D, que se puede llevar como un reloj inteligente.',130000,'https://images-cdn.ubuy.co.in/633b3dcc7dffa939de04e483-aursinc-wifi-deauther-amp-bad-usb.jpg'),
+(10,'UBERTOOTH ONE','Ubertooth One está construido alrededor del microcontrolador ARM Cortex-M3 y es capaz de capturar y demodular señales en la banda ISM de 2,4 GHz con un ancho de banda estrecho de solo 1 MHz . Esto incluye, entre otros: paquetes de velocidad básica de Bluetooth, paquetes BLE y 802.11 FHSS.',1300000,'https://greatscottgadgets.com/images/ubertooth-and-antenna.jpeg');
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sessions`
+--
+
+DROP TABLE IF EXISTS `sessions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sessions` (
+  `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `expires` int(11) unsigned NOT NULL,
+  `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  PRIMARY KEY (`session_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sessions`
+--
+
+LOCK TABLES `sessions` WRITE;
+/*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `username` varchar(50) NOT NULL,
+  `password` varchar(5000) NOT NULL,
+  `fullname` varchar(50) NOT NULL,
+  `cargo` varchar(10) NOT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES
+('mking','$2a$10$4A/oiSkF983tXWFAPoNym..k8xONCErWe6muIKsmw.SaBflY.2wnW','Rey Misterio','admin'),
+('pperez','$2a$10$o8Tr3VdnW1WgcaoIhhQOAe.5nnKsV4WHJmZPbHErTKgHVwJAWNSQu','Pepito Perez','user');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -57,4 +114,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-09-03 23:29:38
+-- Dump completed on 2024-09-20 16:22:27
