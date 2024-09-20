@@ -1,0 +1,41 @@
+<%- include('./partials/header'); %>
+
+<!-- HEROE -->
+<div class="container py-5 mb-5">
+    <div class="d-flex align-items-center">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0VRRnYh8vbq6v7qSJuHbuWajoKN1kDB1kzg&s" alt="" width="72" height="57" class="me-3">
+        <h1 class="display-5 fw-bold text-body-emphasis mb-0">HackHub</h1>
+    </div>
+</div>
+<!-- DASHBOARD -->
+<div class="container mt-5">
+    <!-- Título "Dashboard" pequeño con separadores -->
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center">
+                <hr class="flex-grow-1 me-3"> <!-- Separador a la izquierda -->
+                <small class="text-muted">DASHBOARD</small> <!-- Título pequeño -->
+                <hr class="flex-grow-1 ms-3"> <!-- Separador a la derecha -->
+            </div>
+        </div>
+    </div>
+    <!-- Información de Productos -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="d-flex align-items-center">
+                <h5 class="me-3">ALL PRODUCTS:</h5> <!-- Título "Productos" -->
+                <h5 class="text-muted"><%= totalProductos %></h5> <!-- Cantidad de productos -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Información de Precios -->
+    <div class="col-12 mt-3">
+        <div class="d-flex align-items-center">
+            <h5 class="me-3">ALL PRICES:</h5> <!-- Título "Total Precios" -->
+            <h5 class="text-muted">$<%= totalPrecio %></h5> <!-- Total de precios -->
+        </div>
+    </div>
+</div>
+
+<%- include('./partials/footer'); %>

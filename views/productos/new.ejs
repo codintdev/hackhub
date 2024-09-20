@@ -1,0 +1,33 @@
+<%- include('../partials/header'); %>
+
+<div class="container text-center p-4">
+    <h1 class="mb-4">Nuevo Producto</h1>
+    <form class="row g-4" action="/productos/new" method="POST">
+        <div class="col-md-6">
+            <label for="id" class="form-label">ID</label>
+            <input type="number" class="form-control" id="id" name="id" required autofocus>
+        </div>
+        <div class="col-md-6">
+            <label for="nombre" class="form-label">Name</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required autofocus>
+        </div>
+        <div class="col-md-6">
+            <label for="descripcion" class="form-label">Description</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required autofocus></textarea>
+        </div>
+        <div class="col-md-6">
+            <label for="precio" class="form-label">Price</label>
+            <input type="number" class="form-control" id="precio" name="precio" required autofocus>
+        </div>
+        <div class="col-md-6">
+            <label for="imagen" class="form-label">Image</label>
+            <input type="text" class="form-control" id="imagen" name="imagen" required autofocus>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-success btn-sm">Add</button>
+        </div>
+    </form>
+</div>
+
+<%- include('../partials/footer'); %>
+

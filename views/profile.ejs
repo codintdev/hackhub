@@ -1,0 +1,26 @@
+<%- include('./partials/header'); %>
+
+<div class="container p-3">
+  <div class="row">
+    <div class="col-md-auto mx-auto">
+      <div class="card text-center">
+        <div class="card-body">
+          <h3>Welcome <%= user.fullname %></h3>
+          <h4 class="font-italic"><%= user.username %></h4>
+          <% if (cargo == "admin") { %>
+            <a href="/productos" class="btn btn-primary m-3">
+              See All Products
+            </a>
+            <a href="/productos/new" class="btn btn-primary m-3">
+              Add New Product
+            </a>
+          <% } else { %>
+            <p class="h1">No eres admin</p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('./partials/footer'); %>

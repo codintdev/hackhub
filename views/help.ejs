@@ -1,0 +1,62 @@
+<%- include('./partials/header'); %>
+
+<!-- Header -->
+<header class="bg-dark text-white py-3">
+    <div class="container">
+        <h1 class="display-5">HackHub Help Center</h1>
+        <p class="lead">Your one-stop support for all hacking tools and queries.</p>
+    </div>
+</header>
+
+<!-- FAQ Section -->
+<section class="container my-5">
+    <h2 class="text-center mb-4">Frequently Asked Questions (FAQs)</h2>
+    <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    What tools does HackHub offer?
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    HackHub offers a wide range of ethical hacking tools including network sniffers, USB penetration devices, and other hardware similar to Hak5’s product line.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    How can I contact support?
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    You can reach us via the contact form below or by emailing support@hackhub.com. We aim to respond within 24-48 hours.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Are the tools legal to use?
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    All tools are intended for legal use in ethical hacking and penetration testing with proper consent. Misuse of these tools for illegal activities is strictly prohibited.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="container my-5">
+    <h2 class="text-center mb-4">Contact Us</h2>
+</section>
+
+<%- include('./partials/footer'); %>
+
