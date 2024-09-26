@@ -22,7 +22,7 @@ router.post('/signup', async (req, res, next) => {
         // Validamos si el username ya existe
         const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username])
         if (rows.length > 0) {
-            return res.status(400).json({ message: "El usuario" })
+            return res.status(400).json({ message: "El usuario ya existe" })
         }
         
         const user = { username, fullname: req.body.fullname, cargo: req.body.cargo }
@@ -49,15 +49,15 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res, next) => {
     try {
         const { username, password } = req.body;
-        const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
+        const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username])
       
         if (rows.length === 0) {
-            return res.redirect('/login'); // Usuario no encontrado
+            return res.redirect('/login') // Usuario no encontrado
         }
   
         const user = rows[0];
   
-        const validPassword = await bcrypt.compare(password, user.password);
+        const validPassword = await bcrypt.compare(password, user.password)
         if (!validPassword) {
             return res.redirect('/login'); // Contraseña incorrecta
         }

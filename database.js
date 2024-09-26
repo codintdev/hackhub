@@ -6,7 +6,7 @@ const pool = mysql.createPool(database)
 pool.getConnection((err, connection) => {
     if (err) throw err
     if (connection) connection.release()
-    console.log('[!] Mysql Connected!')
+    console.log('[*] Mysql Connected!')
 })
 
 pool.query = promisify(pool.query)

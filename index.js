@@ -9,24 +9,64 @@ const bodyParser = require('body-parser') // Permite acceder a los datos del cue
 const cookieParser = require('cookie-parser')
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
-
+const { Server } = require('socket.io')
+const { createServer } = require('node:http')
 const session = require('express-session')
 const mysqlSession = require('express-mysql-session')
 const MySQLStore = mysqlSession(session)
 
 const { PORT, SECRET_JWT_KEY } = require('./config')
 const { database } = require('./keys')
+const pool = require('./database')
+const { isAuthenticated } = require('./lib/authentication')
 require('./lib/passport')
 
 // Inicialización
 const app = express()
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
 app.use(cookieParser())
+const server = createServer(app)
+const io = new Server(server, {
+  connectionStateRecovery: {}
+})
+
+io.on('connection', async (socket) => {
+  console.log('[*] Un usuario se ha conectado!')
+
+  socket.on('disconnect', () => {
+    console.log('[*] Un usuario se ha desconectado!')
+  })
+
+  socket.on('chat message', async (msg) => {
+    let result
+    let username = socket.handshake.auth.username ?? 'anonymous'
+    try {
+      result = await pool.query('INSERT INTO messages (content, user) VALUES (?, ?)', [msg, username])
+    } catch (err) {
+      console.error(err)
+      return
+    }
+    io.emit('chat message', msg, result.insertId.toString(), username)
+  })
+
+  if (!socket.recovered) {
+    try {
+      const results = await pool.query('SELECT id, content, user, created_at FROM messages WHERE id > ?', [socket.handshake.auth.serverOffset ?? 0])
+
+      results.forEach(row => {
+        console.log(`[*] Esto vale los rows: ${row.content}, ${row.id.toString()}, ${row.created_at}`)
+        socket.emit('chat message', row.content, row.id.toString(), row.user)
+      })
+    } catch (error) {
+        console.error(error)
+    }
+  }
+})
 
 // Middlewares
 app.use(morgan('dev'))
@@ -59,6 +99,14 @@ app.use(require('./routes/products'))
 app.use(require('./routes/help'))
 app.use(require('./routes/api'))
 
-app.listen(PORT, () => {
-  console.log("Servidor corriendo correctamente:", PORT)
+app.get('/chat', isAuthenticated, (req, res) => {
+  res.sendFile(process.cwd() + '/client/index.html')
+})
+
+app.get('/username', isAuthenticated, (req, res) => {
+  res.json({ username: req.user.username })
+})
+
+server.listen(PORT, () => {
+  console.log("[*] Servidor corriendo correctamente:", PORT)
 })

@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const pool = require('../database')
+
 const { isAuthenticated, isNotAuthenticated } = require('../lib/authentication')
 
 router.get('/productos', isAuthenticated, async (req, res) => {
@@ -35,6 +36,7 @@ router.post('/productos/new', async (req, res) => {
 // Eliminar producto
 router.delete('/productos/eliminar/:id', isAuthenticated, async (req, res) => {
     const { id } = req.params
+    
     await pool.query('DELETE FROM productos WHERE id = ?', [id])
     res.redirect('/productos')
 })
