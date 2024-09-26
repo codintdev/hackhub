@@ -17,6 +17,40 @@
 /*M!100616 SET @OLD_NOTE_VERBOSITY=@@NOTE_VERBOSITY, NOTE_VERBOSITY=0 */;
 
 --
+-- Table structure for table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `messages` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `content` text DEFAULT NULL,
+  `user` varchar(50) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `fk_user` (`user`),
+  CONSTRAINT `fk_user` FOREIGN KEY (`user`) REFERENCES `users` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `messages`
+--
+
+LOCK TABLES `messages` WRITE;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+INSERT INTO `messages` VALUES
+(1,'Holaa','mking','2024-09-25 23:49:42'),
+(2,'Holaa','pperez','2024-09-25 23:50:15'),
+(3,'Como estas','mking','2024-09-25 23:50:18'),
+(4,'Holaaa','mking','2024-09-25 23:53:28'),
+(5,'Holaaaa','pperez','2024-09-25 23:53:49'),
+(6,'Como estass','mking','2024-09-25 23:53:55');
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `productos`
 --
 
@@ -48,8 +82,7 @@ INSERT INTO `productos` VALUES
 (6,'HACK RF ONE','HackRF One es capaz de recibir y transmitir en un rango de frecuencia de 1 MHz a 6 GHz con una potencia de salida máxima de hasta 15 dBm según la banda . La unidad viene con un puerto de antena SMA, puertos SMA de entrada y salida de reloj y un puerto USB 2.0.',950000,'https://www.openhacks.com/uploadsproductos/13001-01.jpg'),
 (7,'RASPBERRY PI','Una Raspberry PI es un ordenador del tamaño de una tarjeta de crédito. ¿Suena increíble, verdad? Consiste en una placa base que soporta distintos componentes de un ordenador como un procesador ARM de hasta 1500 MHz, un chip gráfico y una memoria RAM de hasta 8 GB. Además, tiene otras muchas otras posibilidades.',350000,'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Raspberry_Pi_4_Model_B_-_Side.jpg/1200px-Raspberry_Pi_4_Model_B_-_Side.jpg'),
 (8,'LAN TURTLE','LAN Turtle es una herramienta encubierta de administración de sistemas y pruebas de penetración que proporciona acceso remoto sigiloso, recopilación de inteligencia de red y capacidades de vigilancia de hombre en el medio a través de una sencilla carcasa gráfica.',350000,'https://shop.hak5.org/cdn/shop/files/turtle-2_1400x.jpg?v=1613748062'),
-(9,'WIFI DEAUTHER','[Deauther Watch V3]: es una potente herramienta de prueba de red WiFi, envuelta por una caja acrílica y una carcasa transparente impresa en 3D, que se puede llevar como un reloj inteligente.',130000,'https://images-cdn.ubuy.co.in/633b3dcc7dffa939de04e483-aursinc-wifi-deauther-amp-bad-usb.jpg'),
-(10,'UBERTOOTH ONE','Ubertooth One está construido alrededor del microcontrolador ARM Cortex-M3 y es capaz de capturar y demodular señales en la banda ISM de 2,4 GHz con un ancho de banda estrecho de solo 1 MHz . Esto incluye, entre otros: paquetes de velocidad básica de Bluetooth, paquetes BLE y 802.11 FHSS.',1300000,'https://greatscottgadgets.com/images/ubertooth-and-antenna.jpeg');
+(9,'WIFI DEAUTHER','[Deauther Watch V3]: es una potente herramienta de prueba de red WiFi, envuelta por una caja acrílica y una carcasa transparente impresa en 3D, que se puede llevar como un reloj inteligente.',130000,'https://images-cdn.ubuy.co.in/633b3dcc7dffa939de04e483-aursinc-wifi-deauther-amp-bad-usb.jpg');
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,4 +147,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-09-20 16:22:27
+-- Dump completed on 2024-09-26  0:45:39
