@@ -17,6 +17,36 @@
 /*M!100616 SET @OLD_NOTE_VERBOSITY=@@NOTE_VERBOSITY, NOTE_VERBOSITY=0 */;
 
 --
+-- Table structure for table `cart`
+--
+
+DROP TABLE IF EXISTS `cart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cart` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `id_producto` int(12) NOT NULL,
+  `user` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_cart_id_producto` (`id_producto`),
+  KEY `fk_cart_user` (`user`),
+  CONSTRAINT `fk_cart_id_producto` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id`),
+  CONSTRAINT `fk_cart_user` FOREIGN KEY (`user`) REFERENCES `users` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cart`
+--
+
+LOCK TABLES `cart` WRITE;
+/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+INSERT INTO `cart` VALUES
+(1,1,'mking');
+/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `messages`
 --
 
@@ -80,34 +110,8 @@ INSERT INTO `productos` VALUES
 (4,'BASH BUNNY','Bash Bunny- La plataforma de ataque USB más avanzada del mundo. Bash Bunny abre superficies de ataque que no eran posibles antes en un solo dispositivo. Los ataques de pruebas de penetración y las tareas de automatización de TI se entregan en segundos con el Bash Bunny.',550000,'https://shop.hak5.org/cdn/shop/files/bash-bunny-mk2_003_1400x.jpg?v=1624552106'),
 (5,'ADAPTADOR INALAMBRICO ALFA AWUS036ACS','Adaptador Wi-Fi inalámbrico USB AC600 de doble banda de cobertura ancha con antena externa de alta sensibilidad - Compatible con Windows, MacOS y Kali Linux.',100000,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMOqTJ8k6lrQnZwTqkjgx_QYxCklTUJqHsQw&s'),
 (6,'HACK RF ONE','HackRF One es capaz de recibir y transmitir en un rango de frecuencia de 1 MHz a 6 GHz con una potencia de salida máxima de hasta 15 dBm según la banda . La unidad viene con un puerto de antena SMA, puertos SMA de entrada y salida de reloj y un puerto USB 2.0.',950000,'https://www.openhacks.com/uploadsproductos/13001-01.jpg'),
-(7,'RASPBERRY PI','Una Raspberry PI es un ordenador del tamaño de una tarjeta de crédito. ¿Suena increíble, verdad? Consiste en una placa base que soporta distintos componentes de un ordenador como un procesador ARM de hasta 1500 MHz, un chip gráfico y una memoria RAM de hasta 8 GB. Además, tiene otras muchas otras posibilidades.',350000,'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Raspberry_Pi_4_Model_B_-_Side.jpg/1200px-Raspberry_Pi_4_Model_B_-_Side.jpg'),
-(8,'LAN TURTLE','LAN Turtle es una herramienta encubierta de administración de sistemas y pruebas de penetración que proporciona acceso remoto sigiloso, recopilación de inteligencia de red y capacidades de vigilancia de hombre en el medio a través de una sencilla carcasa gráfica.',350000,'https://shop.hak5.org/cdn/shop/files/turtle-2_1400x.jpg?v=1613748062'),
-(9,'WIFI DEAUTHER','[Deauther Watch V3]: es una potente herramienta de prueba de red WiFi, envuelta por una caja acrílica y una carcasa transparente impresa en 3D, que se puede llevar como un reloj inteligente.',130000,'https://images-cdn.ubuy.co.in/633b3dcc7dffa939de04e483-aursinc-wifi-deauther-amp-bad-usb.jpg');
+(7,'RASPBERRY PI','Una Raspberry PI es un ordenador del tamaño de una tarjeta de crédito. ¿Suena increíble, verdad? Consiste en una placa base que soporta distintos componentes de un ordenador como un procesador ARM de hasta 1500 MHz, un chip gráfico y una memoria RAM de hasta 8 GB. Además, tiene otras muchas otras posibilidades.',350000,'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Raspberry_Pi_4_Model_B_-_Side.jpg/1200px-Raspberry_Pi_4_Model_B_-_Side.jpg');
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `sessions`
---
-
-DROP TABLE IF EXISTS `sessions`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sessions` (
-  `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `expires` int(11) unsigned NOT NULL,
-  `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  PRIMARY KEY (`session_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sessions`
---
-
-LOCK TABLES `sessions` WRITE;
-/*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -147,4 +151,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-09-26  0:45:39
+-- Dump completed on 2024-10-20 12:13:33
