@@ -1,8 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const pool = require('../database')
-
-const { isAuthenticated, isNotAuthenticated } = require('../lib/authentication')
+const { isAuthenticated } = require('../lib/authentication')
 
 router.get('/productos', isAuthenticated, async (req, res) => {
     const cargo = req.user.cargo

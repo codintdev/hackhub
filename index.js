@@ -96,8 +96,8 @@ app.use((req, res, next) => {
 app.use(require('./routes/'))
 app.use(require('./routes/authentication'))
 app.use(require('./routes/products'))
-app.use(require('./routes/help'))
 app.use(require('./routes/api'))
+app.use(require('./routes/cart'))
 
 app.get('/chat', isAuthenticated, (req, res) => {
   res.sendFile(process.cwd() + '/client/index.html')

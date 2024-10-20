@@ -1,4 +1,3 @@
-// Función para eliminar un producto al oprimir el boton eliminar
 function eliminarProducto(id) {
     const modal = document.getElementById('modal-eliminar');
     const mensajeEliminar = document.getElementById('mensaje-eliminar');
@@ -22,7 +21,7 @@ function eliminarProducto(id) {
         }
     });
 }
-// Función para cancelar
+
 function cancelar() {
     fetch('/productos')
         .then(response => {
@@ -30,5 +29,4 @@ function cancelar() {
             location.reload();
         })
 }
-      
       

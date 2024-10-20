@@ -1,36 +1,27 @@
-<%- include('../partials/header'); %>
-
-<div class="container p-3">
-  <div class="row">
-    <div class="col-md-4 mx-auto">
-      <div class="card text-center">
-        <div class="card-header">
-          <h3>Sign Up</h3>
+  <%- include('../partials/header'); %>
+  <div class="container p-3">
+    <main class="form-signin w-100 m-auto">
+      <form action="/signup" method="post">
+        <img class="mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0VRRnYh8vbq6v7qSJuHbuWajoKN1kDB1kzg&s" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Sign up</h1>
+        <div class="form-floating">
+          <input type="text" class="form-control" name="fullname" placeholder="Fullname">
+          <label for="floatingInput">Fullname</label>
         </div>
-        <div class="card-body">
-          <form action="/signup" method="POST">
-            <div class="form-group">
-              <input type="text" name="fullname" placeholder="Full Name" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="text" name="username" placeholder="Username" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" name="password" placeholder="Password" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="text" name="cargo" placeholder="Cargo" class="form-control">
-            </div>
-            <div class="form-group">
-              <button class="btn btn-primary btn-block mt-3">
-                Sign Up
-              </button>
-            </div>
-          </form>
+        <div class="form-floating">
+          <input type="text" class="form-control" name="username" placeholder="Username">
+          <label for="floatingInput">Username</label>
         </div>
-      </div>
-    </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" name="password" placeholder="Password">
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" name="cargo" placeholder="Cargo">
+          <label for="floatingInput">Cargo</label>
+        </div>
+        <button class="btn btn-primary w-100 py-2" type="submit">Sign up</button>
+        <p class="mt-5 mb-3 text-body-secondary">© 2017–2024</p>
+      </form>
+    </main>
   </div>
-</div>
-</body>
-</html>

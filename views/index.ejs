@@ -1,41 +1,52 @@
 <%- include('./partials/header'); %>
-
 <!-- HEROE -->
-<div class="container py-5 mb-5">
-    <div class="d-flex align-items-center">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0VRRnYh8vbq6v7qSJuHbuWajoKN1kDB1kzg&s" alt="" width="72" height="57" class="me-3">
-        <h1 class="display-5 fw-bold text-body-emphasis mb-0">HackHub</h1>
+<main>
+    <div class="container my-5">
+        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+            <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0VRRnYh8vbq6v7qSJuHbuWajoKN1kDB1kzg&s" alt="" width="72" height="57" class="me-3">
+                <h1 class="display-4 fw-bold lh-1 text-body-emphasis">HackHub</h1>
+                <p class="lead">HackHub es tu tienda favorita de herramientas de pentesting.</p>
+            </div>
+            <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+                <img class="rounded-lg-3" src="https://lh3.googleusercontent.com/3d8UQA2XDEdWFoFNrHU3Q4OLNd4m40mUtjYpxIiixxo1ulHAr7IvQUpolGrA4n5FpVGkrvnxbbWK6IIDKbM-SlAM3A=s1280-w1280-h800" alt="" width="720">
+            </div>
+        </div>
     </div>
-</div>
+</main>
 <!-- DASHBOARD -->
-<div class="container mt-5">
-    <!-- Título "Dashboard" pequeño con separadores -->
-    <div class="row">
-        <div class="col-12">
-            <div class="d-flex align-items-center">
-                <hr class="flex-grow-1 me-3"> <!-- Separador a la izquierda -->
-                <small class="text-muted">DASHBOARD</small> <!-- Título pequeño -->
-                <hr class="flex-grow-1 ms-3"> <!-- Separador a la derecha -->
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Dashboard</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
             </div>
         </div>
     </div>
-    <!-- Información de Productos -->
-    <div class="row mt-4">
-        <div class="col-12">
-            <div class="d-flex align-items-center">
-                <h5 class="me-3">ALL PRODUCTS:</h5> <!-- Título "Productos" -->
-                <h5 class="text-muted"><%= totalProductos %></h5> <!-- Cantidad de productos -->
-            </div>
-        </div>
+    <h2>Products</h2>
+    <div class="table-responsive small">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Element</th>
+                    <th scope="col">Count</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Products</td>
+                    <td><%= totalProductos %></td>
+                    <td><%= totalPrecio.toLocaleString('es-ES') %></td>
+                </tr>
+                <!-- <tr>
+                    <td>10</td>
+                    <td>20.000</td>
+                </tr> -->
+            </tbody>
+        </table>
     </div>
-
-    <!-- Información de Precios -->
-    <div class="col-12 mt-3">
-        <div class="d-flex align-items-center">
-            <h5 class="me-3">ALL PRICES:</h5> <!-- Título "Total Precios" -->
-            <h5 class="text-muted">$<%= totalPrecio %></h5> <!-- Total de precios -->
-        </div>
-    </div>
-</div>
-
+</main>
 <%- include('./partials/footer'); %>

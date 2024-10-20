@@ -1,17 +1,4 @@
--- Database
-CREATE DATABASE hackhub;
-USE hackhub;
+-- INSERT INTO cart(id, id_producto, user) VALUES
+--     (1, 1, "mking");
 
--- Tables
-CREATE TABLE productos (
-    id (11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    nombre VARCHAR(50) NOT NULL,
-    descripcion VARCHAR(500) NOT NULL,
-    precio int(10) NOT NULL,
-    imagen VARCHAR(500) NOT NULL
-);
-
--- Test User
-INSERT INTO productos (id, nombre, descripcion, precio, imagen) VALUES (
-    1, 'Test', 'test', 10, 'test'
-);
+SELECT p.nombre, p.descripcion, p.precio, p.imagen, users.fullname FROM cart INNER JOIN productos p ON cart.id_producto = p.id INNER JOIN users ON cart.user = users.username WHERE user = "test";
